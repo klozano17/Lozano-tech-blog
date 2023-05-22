@@ -1,0 +1,11 @@
+<div class="posts list-group">
+    {{#each posts}}
+    <a>
+        class="list-group-item list-group-item-action flex-column align-items-start"
+        href="/dashboard/edit/{{id}}"
+
+        <span>{{title}}</span>
+        <span>{{format_date createdAt}}</span>
+    </a>
+    {{/each}}
+</div>

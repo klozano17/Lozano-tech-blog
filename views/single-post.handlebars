@@ -1,0 +1,34 @@
+{{post.title}}
+{{post.body}}
+{{format_date post.createdAt}}
+<br />
+<br />
+
+<!-- displaying form and comments-->
+{{#if post.Comments}}
+    <div class="comment-list">
+        {{#each post.Comments}}
+            <p>{{this.body}}</p>
+            <p>{{format_date this.createdAt}} by {{this.User.username}}</p>
+        {{/each}}
+    </div>
+{{/if}}
+<!-- only display if logged in -->
+{{#if loggedIn}}
+    <form class="comment-form">
+        <div>
+            <textarea class="ml-5" name="comment-body"></textarea>
+        </div>
+
+        <div>
+            <button class="button is-warning ml-5 mb-5" type="submit">add comment</button>
+        </div>
+
+    </form>
+{{/if}}
+
+{{post.comments}}
+
+{{#if loggedIn}}
+    <script src="/js/comment.js"></script>
+{{/if}}
